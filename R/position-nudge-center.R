@@ -363,6 +363,8 @@ PositionNudgeCenter <-
           x_nudge[in.grp] <- params$x * sin(angle)
           y_nudge[in.grp] <- -params$y * cos(angle)
         } else if (params$direction == "split") {
+          xx <- rep_len(params$x, sum(in.grp))
+          yy <- rep_len(params$y, sum(in.grp))
           if (length(params$x) == 1L && length(params$y) == 1L) {
             # ensure horizontal and vertical segments have same length as others
             segment_length <- sqrt(params$x^2 + params$y^2)
