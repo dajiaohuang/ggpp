@@ -368,11 +368,9 @@ PositionNudgeCenter <-
           if (length(params$x) == 1L && length(params$y) == 1L) {
             # ensure horizontal and vertical segments have same length as others
             segment_length <- sqrt(params$x^2 + params$y^2)
-            xx <- rep(params$x, nrow(data[in.grp, ]))
             xx <- ifelse(data[in.grp, "y"] == y_ctr,
                          segment_length * sign(xx),
                          xx)
-            yy <- rep(params$y, nrow(data[in.grp, ]))
             yy <- ifelse(data[in.grp, "x"] == x_ctr,
                          segment_length * sign(yy),
                          yy)
